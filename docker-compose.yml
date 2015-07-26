@@ -1,0 +1,31 @@
+api:
+  image: social-learning
+  ports:
+    - "3000:3000"
+  command: bundle exec rails s -p 3000 -b '0.0.0.0'
+  volumes:
+    - ../api:/app
+  expose:
+    - "3000"
+web:
+  image: social-learning-frontend
+  ports:
+    - "4200:4200"
+    - "9000:9000"
+  command: ember serve -p 4200 --live-reload-port 9000
+  volumes:
+    - .:/app
+  expose:
+    - "4200"
+    - "9000"
+  links:
+    - api
+test:
+  image: social-learning-frontend
+  ports:
+    - "7357:7357"
+  command: ember test --server
+  volumes:
+    - .:/app
+  expose:
+    - "7357"

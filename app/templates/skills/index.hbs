@@ -1,0 +1,21 @@
+<div style="padding-top:40px;" class="row">
+  {{#each model as |skill|}}
+    <div class="col-md-4 col-sm-4 col-xs-6 skill">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>
+            {{skill.name}}
+          </h4>
+        </div>
+        <div class="panel-body">
+          <p>
+            {{skill.description}}
+          </p>
+          <p>
+            <a target="_blank" {{bind-attr href="skill.link"}}>{{skill.link}}</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
