@@ -6,7 +6,7 @@ import FactoryGuy from 'ember-data-factory-guy';
 
 var application;
 
-module('Acceptance | show the detail of a skill', {
+module('Acceptance | show the details of a skill', {
   beforeEach: function() {
     application = startApp();
   },
@@ -16,7 +16,7 @@ module('Acceptance | show the detail of a skill', {
   }
 });
 
-test('Show the list of skills', function(assert) {
+test('Show the details of a skill', function(assert) {
   var skills = FactoryGuy.makeList('skill', 1);
   TestHelper.handleFindQuery('skill', ['id'], skills);
 
