@@ -6,7 +6,7 @@ import FactoryGuy from 'ember-data-factory-guy';
 
 var application;
 
-module('Acceptance | show the list of skills', {
+module('Acceptance | show the detail of a skill', {
   beforeEach: function() {
     application = startApp();
   },
@@ -17,13 +17,13 @@ module('Acceptance | show the list of skills', {
 });
 
 test('Show the list of skills', function(assert) {
-  visit('/skills/1');
   var skills = FactoryGuy.makeList('skill', 1);
-
   TestHelper.handleFindQuery('skill', ['id'], skills);
 
+  visit('/skills/1');
+
   andThen(function() {
-    // assert.equal(find('.skill').length, 2);
+    assert.equal(find('#skill #name').text(), skills[0].get('name'));
     assert.equal(currentURL(), '/skills/1');
   });
 });
