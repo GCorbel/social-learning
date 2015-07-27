@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from 'social-learning/tests/helpers/start-app';
-import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
+import FactoryGuy from 'ember-data-factory-guy';
 
 var application;
 
@@ -17,7 +17,7 @@ module('Acceptance | show the list of skills', {
 
 test('Show the list of skills', function(assert) {
   visit('/skills');
-  TestHelper.handleFindAll('skill', 2);
+  FactoryGuy.makeList('skill', 2);
 
   andThen(function() {
     assert.equal(find('.skill').length, 2);
