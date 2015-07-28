@@ -9,10 +9,12 @@ application = undefined
 module 'Acceptance | show the details of a skill',
   beforeEach: ->
     application = startApp()
+    TestHelper.setup()
     return
 
   afterEach: ->
     Ember.run application, 'destroy'
+    TestHelper.teardown()
 
 test 'Show the details of a skill', (assert) ->
   skills = FactoryGuy.makeList('skill', 1)
