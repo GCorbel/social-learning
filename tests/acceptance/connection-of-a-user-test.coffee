@@ -31,3 +31,8 @@ test 'Allow the connection of a user', (assert) ->
 
   andThen ->
     assert.equal currentURL(), '/'
+
+  click 'a.signout'
+
+  andThen ->
+    assert.equal currentURL(), '/'
