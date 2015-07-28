@@ -1,9 +1,22 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+<div class="container">
+  <div id="navbar" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li>{{#link-to 'skills'}}Skill{{/link-to}}</li>
+      {{#if session.isAuthenticated}}
+        <li><a class='signout' {{action 'invalidateSession'}}>Signout</a></li>
+      {{else}}
+        <li>{{#link-to 'signin'}}Signin{{/link-to}}</li>
+      {{/if}}
+    </ul>
+  </div><!--/.nav-collapse -->
+</div>
+</nav>
 
-{{#if session.isAuthenticated}}
-  <a class='signout' {{action 'invalidateSession'}}>Signout</a>
-{{else}}
-  {{#link-to 'signin'}}Signin{{/link-to}}
-{{/if}}
+<div class="container">
 
-{{outlet}}
+  {{outlet}}
+
+</div>
+
