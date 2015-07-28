@@ -7,5 +7,6 @@ Router.map ->
     @route 'index', path: '/'
   @resource 'skill', path: '/skills/:id', ->
     @resource 'acquired_users', path: '/acquired_users'
+    @resource 'searched_users', path: '/searched_users'
 
 export default Router

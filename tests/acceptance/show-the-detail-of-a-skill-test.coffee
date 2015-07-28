@@ -26,7 +26,7 @@ test 'Show the details of a skill', (assert) ->
     assert.equal find('#skill #name').text(), skill.get('name')
     assert.equal currentURL(), '/skills/1'
 
-test 'Show the list of users that acquired this skill', (assert) ->
+test 'Show the list of users who acquired this skill', (assert) ->
   skill = FactoryGuy.make('skill')
   user1 = FactoryGuy.make('user')
   user2 = FactoryGuy.make('user')
@@ -43,3 +43,21 @@ test 'Show the list of users that acquired this skill', (assert) ->
     assert.equal find('.user').length, 1
     assert.equal find('.user .nickname').text(), user1.get('nickname')
     assert.equal currentURL(), '/skills/1/acquired_users'
+
+test 'Show the list of users who search this skill', (assert) ->
+  skill = FactoryGuy.make('skill')
+  user1 = FactoryGuy.make('user')
+  user2 = FactoryGuy.make('user')
+
+  Ember.run ->
+    skill.set('searched_users', [user2])
+
+  TestHelper.handleFindQuery 'skill', [ 'id' ], [skill]
+
+  visit '/skills/1'
+  click 'a.show_searched_users'
+
+  andThen ->
+    assert.equal find('.user').length, 1
+    assert.equal find('.user .nickname').text(), user2.get('nickname')
+    assert.equal currentURL(), '/skills/1/searched_users'
