@@ -16,7 +16,7 @@ module 'Acceptance | a user chooses his skills',
     Ember.run application, 'destroy'
     TestHelper.teardown()
 
-test 'A user chooses his skills', (assert) ->
+test 'A user chooses acquired his skills', (assert) ->
   user = FactoryGuy.make('user')
   TestHelper.handleFindQuery 'user', [ 'id' ], [user]
   TestHelper.handleFindAll 'skill', 2
@@ -26,3 +26,14 @@ test 'A user chooses his skills', (assert) ->
 
   andThen ->
     assert.equal currentURL(), '/users/1/choose-acquired-skills'
+
+test 'A user chooses searched his skills', (assert) ->
+  user = FactoryGuy.make('user')
+  TestHelper.handleFindQuery 'user', [ 'id' ], [user]
+  TestHelper.handleFindAll 'skill', 2
+
+  visit '/users/1/choose-searched-skills'
+  click 'button'
+
+  andThen ->
+    assert.equal currentURL(), '/users/1/choose-searched-skills'

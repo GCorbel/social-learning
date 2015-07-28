@@ -7,6 +7,7 @@ Router.map ->
   @resource 'user', path: '/users/:id', ->
     @route 'edit'
     @route 'choose-acquired-skills'
+    @route 'choose-searched-skills'
 
   @resource 'skills', ->
     @route 'index', path: '/'
