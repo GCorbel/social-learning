@@ -1,11 +1,15 @@
+<div id="search-form">
+ <label>Name:</label>
+ {{input class="search" type="text" value=search action="search" on="key-press"
+     placeholder="Search a skill"}}
+</div>
+
 <div style="padding-top:40px;" class="row">
   {{#each model as |skill|}}
     <div class="col-md-4 col-sm-4 col-xs-6 skill">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h4>
-            {{skill.name}}
-          </h4>
+          <h4 class="name">{{skill.name}}</h4>
         </div>
         <div class="panel-body">
           <p>
