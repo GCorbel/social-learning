@@ -4,5 +4,5 @@ FactoryGuy.define('skill', {
   default: {
     name: 'Ember',
     description: 'JSFramework'
-  }
+  },
 });
