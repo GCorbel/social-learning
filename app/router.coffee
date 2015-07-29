@@ -4,10 +4,10 @@ import config from './config/environment'
 Router = Ember.Router.extend(location: config.locationType)
 Router.map ->
   @route 'signin'
-  @resource 'user', path: '/users/:id', ->
+  @resource 'user', path: '/users/', ->
+    @route 'choose-searched-skills'
     @route 'edit'
     @route 'choose-acquired-skills'
-    @route 'choose-searched-skills'
 
   @resource 'skills', ->
     @route 'index', path: '/'

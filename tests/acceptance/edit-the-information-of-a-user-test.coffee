@@ -21,11 +21,14 @@ test 'Edition of the information', (assert) ->
   TestHelper.handleFindQuery 'user', [ 'id' ], [user]
   TestHelper.handleUpdate(user)
 
-  visit '/users/1/edit'
+  authenticateSession()
+  currentSession().set('user_id', user.id)
+
+  visit '/users/edit'
 
   fillIn '.nickname input', 'Joe'
   fillIn '.email input', 'Joe@blo.com'
   click 'button'
 
   andThen ->
-    assert.equal currentURL(), '/users/1/edit'
+    assert.equal currentURL(), '/users/edit'

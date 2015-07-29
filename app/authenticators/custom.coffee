@@ -18,6 +18,7 @@ export default Base.extend
           email: credentials.identification
           password: credentials.password
       ).then ((response) ->
+        credentials.user_id = response.user_id
         Ember.run ->
           resolve token: response.token
       ), (xhr, status, error) ->

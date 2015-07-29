@@ -21,19 +21,25 @@ test 'A user chooses acquired his skills', (assert) ->
   TestHelper.handleFindQuery 'user', [ 'id' ], [user]
   TestHelper.handleFindAll 'skill', 2
 
-  visit '/users/1/choose-acquired-skills'
+  authenticateSession()
+  currentSession().set('user_id', user.id)
+
+  visit '/users/choose-acquired-skills'
   click 'button'
 
   andThen ->
-    assert.equal currentURL(), '/users/1/choose-acquired-skills'
+    assert.equal currentURL(), '/users/choose-acquired-skills'
 
 test 'A user chooses searched his skills', (assert) ->
   user = FactoryGuy.make('user')
   TestHelper.handleFindQuery 'user', [ 'id' ], [user]
   TestHelper.handleFindAll 'skill', 2
 
-  visit '/users/1/choose-searched-skills'
+  authenticateSession()
+  currentSession().set('user_id', user.id)
+
+  visit '/users/choose-searched-skills'
   click 'button'
 
   andThen ->
-    assert.equal currentURL(), '/users/1/choose-searched-skills'
+    assert.equal currentURL(), '/users/choose-searched-skills'
