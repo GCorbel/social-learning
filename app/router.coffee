@@ -4,6 +4,8 @@ import config from './config/environment'
 Router = Ember.Router.extend(location: config.locationType)
 Router.map ->
   @route 'signin'
+  @route 'signup'
+
   @resource 'matches', path: '/matches/:user_id'
 
   @resource 'user', path: '/users/', ->

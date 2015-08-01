@@ -7,6 +7,7 @@
       {{#if session.isAuthenticated}}
         <li><a class='signout' {{action 'invalidateSession'}}>Signout</a></li>
       {{else}}
+        <li>{{#link-to 'signup'}}Signup{{/link-to}}</li>
         <li>{{#link-to 'signin'}}Signin{{/link-to}}</li>
       {{/if}}
     </ul>
