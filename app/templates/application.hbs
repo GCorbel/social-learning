@@ -5,6 +5,7 @@
       <li class="active"><a href="#">Home</a></li>
       <li>{{#link-to 'skills'}}Skill{{/link-to}}</li>
       {{#if session.isAuthenticated}}
+        <li>{{#link-to 'user'}}My Account{{/link-to}}</li>
         <li><a class='signout' {{action 'invalidateSession'}}>Signout</a></li>
       {{else}}
         <li>{{#link-to 'signup'}}Signup{{/link-to}}</li>
