@@ -15,7 +15,7 @@ export default Base.extend
         url: 'http://localhost:3000/api/v1/sessions'
         type: 'POST'
         data: session:
-          email: credentials.identification
+          email: credentials.email
           password: credentials.password
       ).then ((response) ->
         credentials.user_id = response.user_id
