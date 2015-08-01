@@ -25,8 +25,8 @@ test 'Allow the connection of a user', (assert) ->
       token: 'test'
 
   visit '/signin'
-  fillIn 'input.email', 'test@test.com'
-  fillIn 'input.password', 'test'
+  fillIn 'div.email input', 'test@test.com'
+  fillIn 'div.password input', 'test'
   click 'button'
 
   andThen ->
