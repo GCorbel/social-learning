@@ -1,5 +1,8 @@
-{{#skill-card}}
-{{/skill-card}}
+{{#each searched_skills as |searched_skill|}}
+  {{#skill-card searched_skill=searched_skill}}{{/skill-card}}
+{{/each}}
+
+<div class="col-md-4 well">
 {{#em-form model=newSkill}}
 {{select-2
     value=skill
@@ -11,3 +14,4 @@
 {{em-input property="description" label="Description"
   placeholder="Description" class="description"}}
 {{/em-form}}
+</div>

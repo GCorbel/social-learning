@@ -13,5 +13,5 @@ export default Ember.Controller.extend
       Ember.$.ajax
         url: "http://localhost:3000/api/v1/users/#{@model.id}/update_acquired_skills"
         data:
-          skill_ids: skill_ids
+          acquired_skill_ids: skill_ids
         type: 'PUT'

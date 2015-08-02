@@ -13,6 +13,7 @@ Router.map ->
     @route 'edit'
     @route 'choose-acquired-skills'
     @route 'matches'
+    @route 'searched-skills'
 
   @resource 'skills', ->
     @route 'index', path: '/'
