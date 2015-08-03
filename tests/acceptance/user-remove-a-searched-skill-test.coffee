@@ -26,7 +26,6 @@ test 'A user remove a searched skill', (assert) ->
   currentSession().set('user_id', user.id)
 
   visit '/users/searched-skills'
-  console.log find('.skill').html()
   click '.delete'
 
   andThen ->
