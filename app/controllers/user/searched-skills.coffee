@@ -6,6 +6,9 @@ export default Ember.Controller.extend
     @store.findAll 'skill'
   ).property('skills')
   actions:
+    delete: (searched_skill) ->
+      searched_skill.destroyRecord().then =>
+        @get('searched_skills').removeObject(searched_skill)
     submit: ->
       user = @get('user')
       skill = @get('skill')
