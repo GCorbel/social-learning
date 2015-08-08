@@ -1,4 +1,7 @@
 <div id="user">
   <div id="nickname">{{model.nickname}}</div>
+  {{#link-to 'users.acquired-skills' model class="show_acquired_skills"}}
+    Show acquired skills
+  {{/link-to}}
   {{outlet}}
 </div>

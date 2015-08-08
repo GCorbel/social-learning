@@ -25,3 +25,22 @@ test 'Show the details of a user', (assert) ->
   andThen ->
     assert.equal find('#user #nickname').text(), user.get('nickname')
     assert.equal currentURL(), '/users/1'
+
+test 'Show the list skills acquired', (assert) ->
+  user = FactoryGuy.make('user')
+  skill1 = FactoryGuy.make('skill')
+  skill2 = FactoryGuy.make('skill')
+
+  Ember.run ->
+    user.set('acquired_skills', [skill1])
+
+  TestHelper.handleFindQuery 'user', [ 'id' ], [user]
+
+  visit '/users/1'
+  click 'a.show_acquired_skills'
+
+  andThen ->
+    console.log find('.skill').text()
+    assert.equal find('.skill').length, 1
+    assert.equal find('.skill .name').text(), skill1.get('name')
+    assert.equal currentURL(), '/users/1/acquired-skills'
