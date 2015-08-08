@@ -25,11 +25,11 @@ test 'A user see the list of his acquired skills', (assert) ->
   authenticateSession()
   currentSession().set('user_id', user.id)
 
-  visit '/users/acquired-skills'
+  visit '/dashboard/acquired-skills'
 
   andThen ->
     assert.equal find('.skill').length, 2
-    assert.equal currentURL(), '/users/acquired-skills'
+    assert.equal currentURL(), '/dashboard/acquired-skills'
 
 test 'A user add a new acquired skill', (assert) ->
   user = FactoryGuy.make('user')
@@ -40,11 +40,11 @@ test 'A user add a new acquired skill', (assert) ->
   authenticateSession()
   currentSession().set('user_id', user.id)
 
-  visit '/users/acquired-skills'
+  visit '/dashboard/acquired-skills'
   click 'button'
 
   andThen ->
-    assert.equal currentURL(), '/users/acquired-skills'
+    assert.equal currentURL(), '/dashboard/acquired-skills'
 
 test 'A user edit a acquired skill', (assert) ->
   user = FactoryGuy.make('user')
@@ -56,13 +56,13 @@ test 'A user edit a acquired skill', (assert) ->
   authenticateSession()
   currentSession().set('user_id', user.id)
 
-  visit '/users/acquired-skills'
+  visit '/dashboard/acquired-skills'
   click '.skill .edit'
   fillIn '.description textarea', 'New Description'
   click '.skill .submit'
 
   andThen ->
-    assert.equal currentURL(), '/users/acquired-skills'
+    assert.equal currentURL(), '/dashboard/acquired-skills'
 
 test 'A user remove a acquired skill', (assert) ->
   user = FactoryGuy.make('user')
@@ -73,8 +73,8 @@ test 'A user remove a acquired skill', (assert) ->
   authenticateSession()
   currentSession().set('user_id', user.id)
 
-  visit '/users/acquired-skills'
+  visit '/dashboard/acquired-skills'
   click '.delete'
 
   andThen ->
-    assert.equal currentURL(), '/users/acquired-skills'
+    assert.equal currentURL(), '/dashboard/acquired-skills'

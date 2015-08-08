@@ -27,8 +27,8 @@ test 'A user see matching people', (assert) ->
     url: 'http://localhost:3000/api/v1/users/1/matches'
     responseText: { users: users }
 
-  visit '/users/matches'
+  visit '/dashboard/matches'
 
   andThen ->
     assert.equal find('.user').length, 2
-    assert.equal currentURL(), '/users/matches'
+    assert.equal currentURL(), '/dashboard/matches'

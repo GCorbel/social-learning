@@ -25,11 +25,11 @@ test 'A user see the list of his searched skills', (assert) ->
   authenticateSession()
   currentSession().set('user_id', user.id)
 
-  visit '/users/searched-skills'
+  visit '/dashboard/searched-skills'
 
   andThen ->
     assert.equal find('.skill').length, 2
-    assert.equal currentURL(), '/users/searched-skills'
+    assert.equal currentURL(), '/dashboard/searched-skills'
 
 test 'A user add a new searched skill', (assert) ->
   user = FactoryGuy.make('user')
@@ -40,11 +40,11 @@ test 'A user add a new searched skill', (assert) ->
   authenticateSession()
   currentSession().set('user_id', user.id)
 
-  visit '/users/searched-skills'
+  visit '/dashboard/searched-skills'
   click 'button'
 
   andThen ->
-    assert.equal currentURL(), '/users/searched-skills'
+    assert.equal currentURL(), '/dashboard/searched-skills'
 
 test 'A user edit a searched skill', (assert) ->
   user = FactoryGuy.make('user')
@@ -56,13 +56,13 @@ test 'A user edit a searched skill', (assert) ->
   authenticateSession()
   currentSession().set('user_id', user.id)
 
-  visit '/users/searched-skills'
+  visit '/dashboard/searched-skills'
   click '.skill .edit'
   fillIn '.description textarea', 'New Description'
   click '.skill .submit'
 
   andThen ->
-    assert.equal currentURL(), '/users/searched-skills'
+    assert.equal currentURL(), '/dashboard/searched-skills'
 
 test 'A user remove a searched skill', (assert) ->
   user = FactoryGuy.make('user')
@@ -73,8 +73,8 @@ test 'A user remove a searched skill', (assert) ->
   authenticateSession()
   currentSession().set('user_id', user.id)
 
-  visit '/users/searched-skills'
+  visit '/dashboard/searched-skills'
   click '.delete'
 
   andThen ->
-    assert.equal currentURL(), '/users/searched-skills'
+    assert.equal currentURL(), '/dashboard/searched-skills'

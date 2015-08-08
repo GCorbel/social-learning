@@ -8,7 +8,7 @@ Router.map ->
 
   @resource 'matches', path: '/matches/:user_id'
 
-  @resource 'user', path: '/users/', ->
+  @resource 'dashboard', ->
     @route 'edit'
     @route 'matches'
     @route 'searched-skills'

@@ -24,11 +24,11 @@ test 'Edition of the information', (assert) ->
   authenticateSession()
   currentSession().set('user_id', user.id)
 
-  visit '/users/edit'
+  visit '/dashboard/edit'
 
   fillIn '.nickname input', 'Joe'
   fillIn '.email input', 'Joe@blo.com'
   click 'button'
 
   andThen ->
-    assert.equal currentURL(), '/users/edit'
+    assert.equal currentURL(), '/dashboard/edit'
