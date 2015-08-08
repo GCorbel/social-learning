@@ -20,8 +20,8 @@ test 'Show the details of a user', (assert) ->
   user = FactoryGuy.make('user')
   TestHelper.handleFindQuery 'user', [ 'id' ], [user]
 
-  visit '/user-details/1'
+  visit '/users/1'
 
   andThen ->
     assert.equal find('#user #nickname').text(), user.get('nickname')
-    assert.equal currentURL(), '/user-details/1'
+    assert.equal currentURL(), '/users/1'
