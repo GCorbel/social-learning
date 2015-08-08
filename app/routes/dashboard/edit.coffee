@@ -1,3 +1,3 @@
 export default Ember.Route.extend
   model: (params) ->
-    this.modelFor('dashboard')
+    @modelFor('dashboard')

@@ -6,4 +6,4 @@ export default Ember.Controller.extend
       session.authenticate('authenticator:custom', data).then =>
         session.set('identification', data.identification)
         session.set('user_id', data.user_id)
-        this.transitionTo '/'
+        @transitionTo '/'
