@@ -14,6 +14,7 @@ Router.map ->
     @route 'choose-acquired-skills'
     @route 'matches'
     @route 'searched-skills'
+    @route 'acquired-skills'
 
   @resource 'skills', ->
     @route 'index', path: '/'
