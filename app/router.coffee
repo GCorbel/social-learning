@@ -9,9 +9,7 @@ Router.map ->
   @resource 'matches', path: '/matches/:user_id'
 
   @resource 'user', path: '/users/', ->
-    @route 'choose-searched-skills'
     @route 'edit'
-    @route 'choose-acquired-skills'
     @route 'matches'
     @route 'searched-skills'
     @route 'acquired-skills'
