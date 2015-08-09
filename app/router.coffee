@@ -11,18 +11,15 @@ Router.map ->
   @resource 'dashboard', ->
     @route 'edit'
     @route 'matches'
-    @route 'searched-skills'
-    @route 'acquired-skills'
+    @route 'skill-users', path: '/skill-users/:kind'
 
   @route 'users', path: '/users/:id', ->
-    @route 'acquired-skills'
-    @route 'searched-skills'
+    @route 'skill-users', path: '/skill-users/:kind'
 
   @resource 'skills', ->
     @route 'index', path: '/'
 
   @resource 'skill', path: '/skills/:id', ->
-    @resource 'acquired_users', path: '/acquired_users'
-    @resource 'searched_users', path: '/searched_users'
+    @route 'skill-users', path: '/skill-users/:kind'
 
 export default Router

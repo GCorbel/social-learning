@@ -1,9 +1,9 @@
 <div id="user">
   <div id="nickname">{{model.nickname}}</div>
-  {{#link-to 'users.acquired-skills' model class="show_acquired_skills"}}
+  {{#link-to 'users.skill-users' model 0 class="show_acquired_skills"}}
     Show acquired skills
   {{/link-to}}
-  {{#link-to 'users.searched-skills' model class="show_searched_skills"}}
+  {{#link-to 'users.skill-users' model 1 class="show_searched_skills"}}
     Show searched skills
   {{/link-to}}
   {{outlet}}

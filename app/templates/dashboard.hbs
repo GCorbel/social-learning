@@ -1,8 +1,8 @@
 {{model.nickname}}
 <ul>
   <li>{{#link-to 'dashboard.edit'}}Edit my account{{/link-to}}</li>
-  <li>{{#link-to 'dashboard.searched-skills'}}Skills you are looking for{{/link-to}}</li>
-  <li>{{#link-to 'dashboard.acquired-skills'}}Skills you want to share{{/link-to}}</li>
+  <li>{{#link-to 'dashboard.skill-users' 0}}Skills you are looking for{{/link-to}}</li>
+  <li>{{#link-to 'dashboard.skill-users' 1}}Skills you want to share{{/link-to}}</li>
   <li>{{#link-to 'dashboard.matches'}}Show users that match with you{{/link-to}}</li>
 </ul>
 {{outlet}}

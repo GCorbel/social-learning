@@ -28,12 +28,7 @@ test 'Show the details of a user', (assert) ->
 
 test 'Show the list skills acquired', (assert) ->
   user = FactoryGuy.make('user')
-  skill1 = FactoryGuy.make('skill')
-  skill2 = FactoryGuy.make('skill')
-
-  Ember.run ->
-    user.set('acquired_skills', [skill1])
-
+  TestHelper.handleFindAll('skill-user', 1)
   TestHelper.handleFindQuery 'user', [ 'id' ], [user]
 
   visit '/users/1'
@@ -41,17 +36,11 @@ test 'Show the list skills acquired', (assert) ->
 
   andThen ->
     assert.equal find('.skill').length, 1
-    assert.equal find('.skill .name').text(), skill1.get('name')
-    assert.equal currentURL(), '/users/1/acquired-skills'
+    assert.equal currentURL(), '/users/1/skill-users/0'
 
 test 'Show the list skills searched', (assert) ->
   user = FactoryGuy.make('user')
-  skill1 = FactoryGuy.make('skill')
-  skill2 = FactoryGuy.make('skill')
-
-  Ember.run ->
-    user.set('searched_skills', [skill1])
-
+  TestHelper.handleFindAll('skill-user', 1)
   TestHelper.handleFindQuery 'user', [ 'id' ], [user]
 
   visit '/users/1'
@@ -59,5 +48,4 @@ test 'Show the list skills searched', (assert) ->
 
   andThen ->
     assert.equal find('.skill').length, 1
-    assert.equal find('.skill .name').text(), skill1.get('name')
-    assert.equal currentURL(), '/users/1/searched-skills'
+    assert.equal currentURL(), '/users/1/skill-users/1'

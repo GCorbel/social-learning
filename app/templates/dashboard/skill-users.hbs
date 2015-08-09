@@ -1,9 +1,9 @@
-{{#each acquired_skills as |acquired_skill|}}
-  {{#skill-card skill=acquired_skill edit='edit' delete='delete'}}{{/skill-card}}
+{{#each skill_users as |skill_user|}}
+  {{#skill-card skill=skill_user edit='edit' delete='delete'}}{{/skill-card}}
 {{/each}}
 
 <div class="col-md-4 well">
-{{#em-form model=newSkill}}
+{{#em-form model=newSkillUser}}
 {{select-2
     value=skill
     content=skills

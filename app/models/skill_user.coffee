@@ -4,3 +4,4 @@ export default DS.Model.extend
   skill_id: DS.attr('string')
   user: DS.belongsTo('user', async: true)
   skill: DS.belongsTo('skill', async: true)
+  kind: DS.attr('integer')
