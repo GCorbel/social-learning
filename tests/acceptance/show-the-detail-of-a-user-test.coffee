@@ -40,7 +40,24 @@ test 'Show the list skills acquired', (assert) ->
   click 'a.show_acquired_skills'
 
   andThen ->
-    console.log find('.skill').text()
     assert.equal find('.skill').length, 1
     assert.equal find('.skill .name').text(), skill1.get('name')
     assert.equal currentURL(), '/users/1/acquired-skills'
+
+test 'Show the list skills searched', (assert) ->
+  user = FactoryGuy.make('user')
+  skill1 = FactoryGuy.make('skill')
+  skill2 = FactoryGuy.make('skill')
+
+  Ember.run ->
+    user.set('searched_skills', [skill1])
+
+  TestHelper.handleFindQuery 'user', [ 'id' ], [user]
+
+  visit '/users/1'
+  click 'a.show_searched_skills'
+
+  andThen ->
+    assert.equal find('.skill').length, 1
+    assert.equal find('.skill .name').text(), skill1.get('name')
+    assert.equal currentURL(), '/users/1/searched-skills'
