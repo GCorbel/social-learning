@@ -1,5 +1,3 @@
 {{#each model as |skill_user|}}
-  <div class="user">
-    <div class="nickname">{{skill_user.user.nickname}}</div>
-  </div>
+  {{#user-card skill_user=skill_user}}{{/user-card}}
 {{/each}}

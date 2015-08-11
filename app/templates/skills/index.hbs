@@ -1,25 +1,35 @@
-<div id="search-form">
- <label>Name:</label>
- {{input class="search" type="text" value=search action="search" on="key-press"
-     placeholder="Search a skill"}}
-</div>
-
-<div style="padding-top:40px;" class="row">
-  {{#each model as |skill|}}
-    <div class="col-md-4 col-sm-4 col-xs-6 skill">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="name">{{#link-to 'skill' skill}}{{skill.name}}{{/link-to}}</h4>
-        </div>
-        <div class="panel-body">
-          <p>
-            {{skill.description}}
-          </p>
-          <p>
-            <a target="_blank" href="{{skill.link}}">{{skill.link}}</a>
-          </p>
-        </div>
+<div class="row">
+<div class="col-sm-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Search a skill</h3>
+    </div>
+    <div class="panel-body">
+      <div id="search-form">
+        {{input class="search form-control" type="text" value=search
+        action="search" on="key-press" placeholder="Enter a search"}}
       </div>
     </div>
+  </div>
+</div>
+</div>
+
+<div class="row">
+  {{#each model as |skill|}}
+  <div class="col-md-4 col-sm-4 col-xs-6 skill">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="name">{{#link-to 'skill' skill}}{{skill.name}}{{/link-to}}</h4>
+      </div>
+      <div class="panel-body">
+        <p>
+        {{skill.description}}
+        </p>
+        <p>
+        <a target="_blank" href="{{skill.link}}">{{skill.link}}</a>
+        </p>
+      </div>
+    </div>
+  </div>
   {{/each}}
 </div>

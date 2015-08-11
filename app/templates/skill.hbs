@@ -1,10 +1,30 @@
-<div id="skill">
-  <div id="name">{{model.name}}</div>
-  {{#link-to 'skill.skill-users' model 0 class="show_acquired_users"}}
+<div id="skill" class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div id="name" class="panel-heading">{{model.name}}</div>
+      <div class="panel-body">
+        <div>
+          {{model.description}}
+          {{model.link}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    {{#link-to 'skill.skill-users' model 0
+    class="show_acquired_users btn btn-default"}}
     Show users with this skill
-  {{/link-to}}
-  {{#link-to 'skill.skill-users' model 1 class="show_searched_users"}}
+    {{/link-to}}
+    {{#link-to 'skill.skill-users' model 1
+    class="show_searched_users btn btn-default"}}
     Show users who search this skill
-  {{/link-to}}
+    {{/link-to}}
+  </div>
+</div>
+<p></p>
+<div class="row">
   {{outlet}}
 </div>

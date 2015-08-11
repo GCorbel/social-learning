@@ -1,9 +1,6 @@
 export default Ember.Controller.extend
-  choosedSkills: (->
-    @model.get('skill_users')
-  ).property('choosedSkills')
   skills: (->
-    @store.findAll 'skill'
+    @store.find('skill')
   ).property('skills')
   actions:
     edit: (skill_user) ->
@@ -18,7 +15,7 @@ export default Ember.Controller.extend
 
       skill_user = @store.createRecord('skill-user')
       skill_user.set('description', @get('newSkillUser').get('description'))
-      skill_user.set('kind', 0)
+      skill_user.set('kind', @get('kind'))
       if skill
         skill_user.set('skill', skill)
         skill_user.set('skill_id', skill.get('id'))

@@ -1,17 +1,30 @@
-{{#each skill_users as |skill_user|}}
-  {{#skill-card skill=skill_user edit='edit' delete='delete'}}{{/skill-card}}
-{{/each}}
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div id="name" class="panel-heading">Skills you are looking for</div>
+      <div class="panel-body">
+        {{#each skill_users as |skill_user|}}
+        {{#skill-card skill_user=skill_user edit='edit' delete='delete'}}{{/skill-card}}
+        {{/each}}
 
-<div class="col-md-4 well">
-{{#em-form model=newSkillUser}}
-{{select-2
-    value=skill
-    content=skills
-    optionLabelPath="name"
-    optionDescriptionPath="description"
-    placeholder="Choose your skills"
-}}
-{{em-input property="description" label="Description"
-  placeholder="Description" class="description"}}
-{{/em-form}}
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div id="name" class="panel-heading">Add a new skill</div>
+            <div class="panel-body">
+              {{#em-form model=newSkillUser}}
+              {{select-2
+              value=skill
+              content=skills
+              optionLabelPath="name"
+              placeholder="Choose your skills"
+              }}
+              {{em-input property="description" label="Description"
+              placeholder="Description" class="description"}}
+              {{/em-form}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

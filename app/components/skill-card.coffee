@@ -1,21 +1,23 @@
 export default Ember.Component.extend
   setup: (->
-    $('.actions').hide()
-  ).on 'init'
+    skill_user = @get('skill_user')
+    container = $("#skill-#{skill_user.get('id')}")
+    container.find('.actions').hide()
+  ).on 'didInsertElement'
   actions:
     submit: ->
-      skill = @get('skill')
-      container = $("#skill-#{skill.get('id')}")
+      skill_user = @get('skill_user')
+      container = $("#skill-#{skill_user.get('id')}")
       new_description = container.find('textarea').val()
-      skill.set('description', new_description)
-      @sendAction 'edit', skill
+      skill_user.set('description', new_description)
+      @sendAction 'edit', skill_user
       container.find('.description').html(new_description)
       container.find('.actions').hide()
     delete: ->
-      @sendAction 'delete', @get('skill')
+      @sendAction 'delete', @get('skill_user')
     edit: ->
-      skill = @get('skill')
-      container = $("#skill-#{skill.get('id')}")
-      textarea = $('<textarea/>', text: skill.get('description'))
+      skill_user = @get('skill_user')
+      container = $("#skill-#{skill_user.get('id')}")
+      textarea = $('<textarea/>', text: skill_user.get('description'))
       container.find('.description').html(textarea)
       container.find('.actions').show()

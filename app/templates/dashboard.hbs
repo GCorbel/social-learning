@@ -1,8 +1,24 @@
-{{model.nickname}}
-<ul>
-  <li>{{#link-to 'dashboard.edit'}}Edit my account{{/link-to}}</li>
-  <li>{{#link-to 'dashboard.skill-users' 0}}Skills you are looking for{{/link-to}}</li>
-  <li>{{#link-to 'dashboard.skill-users' 1}}Skills you want to share{{/link-to}}</li>
-  <li>{{#link-to 'dashboard.matches'}}Show users that match with you{{/link-to}}</li>
-</ul>
+<div id="skill" class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div id="name" class="panel-heading">{{model.nickname}}</div>
+      <div class="panel-body">
+        <div class="list-group">
+          {{#link-to 'dashboard.edit' class="list-group-item"}}
+            Edit my account
+          {{/link-to}}
+          {{#link-to 'dashboard.skill-users' 0 class="list-group-item"}}
+            Skills you are looking for
+          {{/link-to}}
+          {{#link-to 'dashboard.skill-users' 1 class="list-group-item"}}
+            Skills you want to share
+          {{/link-to}}
+          {{#link-to 'dashboard.matches' class="list-group-item"}}
+            Show users that match with you
+          {{/link-to}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {{outlet}}
