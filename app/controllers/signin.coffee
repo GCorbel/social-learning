@@ -3,7 +3,10 @@ export default Ember.Controller.extend
     submit: ->
       data = @getProperties('email', 'password')
       session = @get('session')
-      session.authenticate('authenticator:custom', data).then =>
+      session.authenticate('authenticator:custom', data).then(=>
         session.set('identification', data.identification)
         session.set('user_id', data.user_id)
         @transitionTo '/'
+      ).fail((data, blabla)=>
+        @set('errors', data.errors)
+      )

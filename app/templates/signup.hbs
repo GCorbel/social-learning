@@ -4,11 +4,15 @@
       <div id="name" class="panel-heading">Edit my account</div>
       <div class="panel-body">
         {{#em-form model=model}}
-        {{em-input property="nickname" label="Nickname" placeholder="Nickname" class="nickname"}}
-        {{em-input property="email" label="Email" placeholder="Email" class="email"}}
-        {{em-input property="password" type="password" label="Password" placeholder="Password" class="password"}}
-        {{em-input property="password_confirmation" type="password" label="Password (confirmation)"
-        placeholder="Reenter your password" class="password_confirmation"}}
+          {{em-input canShowErrors=true property="nickname" label="Nickname"
+            placeholder="Nickname" class="nickname"}}
+          {{em-input canShowErrors=true property="email" label="Email"
+            placeholder="Email" class="email"}}
+          {{em-input canShowErrors=true property="password" type="password"
+            label="Password" placeholder="Password" class="password"}}
+          {{em-input canShowErrors=true property="password_confirmation"
+            type="password" label="Password (confirmation)"
+            placeholder="Reenter your password" class="password_confirmation"}}
         {{/em-form}}
       </div>
     </div>

@@ -8,21 +8,7 @@
         {{/each}}
 
         <div class="col-md-4">
-          <div class="panel panel-default">
-            <div id="name" class="panel-heading">Add a new skill</div>
-            <div class="panel-body">
-              {{#em-form model=newSkillUser}}
-              {{select-2
-              value=skill
-              content=skills
-              optionLabelPath="name"
-              placeholder="Choose your skills"
-              }}
-              {{em-input property="description" label="Description"
-              placeholder="Description" class="description"}}
-              {{/em-form}}
-            </div>
-          </div>
+          {{#skill-user-form skill_user=newSkillUser all_skills=skills submit='submit'}}{{/skill-user-form}}
         </div>
       </div>
     </div>

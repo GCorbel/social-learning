@@ -1,0 +1,13 @@
+<div class="panel panel-default">
+  <div id="name" class="panel-heading">Add a new skill</div>
+  <div class="panel-body">
+    {{#em-form model=skill_user}}
+      {{em-select canShowErrors=true label="Skill" property="skill_id"
+        content=all_skills optionValuePath="content.id"
+        optionLabelPath="content.name" prompt="Select Skill"}}
+      {{em-input canShowErrors=true property="description"
+        label="Description" placeholder="Description"
+        class="description"}}
+    {{/em-form}}
+  </div>
+</div>

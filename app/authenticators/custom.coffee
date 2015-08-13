@@ -22,10 +22,8 @@ export default Base.extend
         Ember.run ->
           resolve token: response.token
       ), (xhr, status, error) ->
-        console.log xhr.responseText
-        response = JSON.parse(xhr.responseText)
         Ember.run ->
-          reject response.error
+          reject xhr.responseJSON
 
   invalidate: (data) ->
     _this = this

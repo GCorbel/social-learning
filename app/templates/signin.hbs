@@ -4,6 +4,9 @@
       <div id="name" class="panel-heading">Sin In</div>
       <div class="panel-body">
         {{#em-form model=model}}
+        {{#each errors.messages as |message|}}
+            {{message}}
+        {{/each}}
         <div class="email">
           <label class="control-label">Email</label>
           {{input type="text" value=email class="form-control email" placeholder="Email"}}

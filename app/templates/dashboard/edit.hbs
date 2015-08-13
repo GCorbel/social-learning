@@ -5,8 +5,10 @@
       <div class="panel-body">
         <div class="list-group">
           {{#em-form model=model}}
-          {{em-input property="nickname" label="Nickname" placeholder="Nickname" class="nickname"}}
-          {{em-input property="email" label="Email" placeholder="Email" class="email"}}
+          {{em-input canShowErrors=true property="nickname" label="Nickname"
+            placeholder="Nickname" class="nickname"}}
+          {{em-input canShowErrors=true property="email" label="Email"
+            placeholder="Email" class="email"}}
           {{/em-form}}
         </div>
       </div>

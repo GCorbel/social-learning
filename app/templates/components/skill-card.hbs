@@ -4,7 +4,15 @@
     <div class="panel-body">
       <a class='delete btn btn-default' {{action 'delete'}}>Delete</a>
       <a class='edit btn btn-default' {{action 'edit'}}>Edit</a>
-      <p class="description">{{skill_user.description}}</p>
+      {{#if editing}}
+        {{#em-form model=skill_user}}
+          {{em-input canShowErrors=true property="description"
+            label="Description" placeholder="Description"
+            class="description"}}
+        {{/em-form}}
+      {{else}}
+        <p class="description">{{skill_user.description}}</p>
+      {{/if}}
       <div class="actions">
         <a class='submit btn btn-default' {{action 'submit'}}>Submit</a>
       </div>

@@ -6,7 +6,7 @@ export default Ember.Route.extend
     controller.set('skill_users', [])
 
     controller.set('user', user)
-    controller.set('newSkillUser', @store.createRecord('skill_user'))
+    controller.set('newSkillUser', @store.createRecord('skill-user'))
     controller.set('kind', params.kind)
 
     @store.find('skill_user', user_id: user_id, kind: params.kind).then (result) ->
@@ -15,3 +15,4 @@ export default Ember.Route.extend
         skill_user
 
       controller.set('skill_users', skill_users)
+
