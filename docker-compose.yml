@@ -1,5 +1,5 @@
 api:
-  image: social-learning
+  image: gcorbel/social-learning-api
   ports:
     - "3000:3000"
   command: bundle exec rails s -p 3000 -b '0.0.0.0'
@@ -8,7 +8,7 @@ api:
   expose:
     - "3000"
 web:
-  image: social-learning-frontend
+  image: gcorbel/social-learning-frontend
   ports:
     - "4200:4200"
     - "9000:9000"
@@ -21,7 +21,7 @@ web:
   links:
     - api
 test:
-  image: social-learning-frontend
+  image: gcorbel/social-learning-frontend
   ports:
     - "7357:7357"
   command: ember test --server
