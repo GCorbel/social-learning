@@ -1,0 +1,10 @@
+<div id="user">
+  <div id="nickname">{{model.nickname}}</div>
+  {{#link-to 'user.skill-users' model 0 class="show_acquired_skills"}}
+    Show acquired skills
+  {{/link-to}}
+  {{#link-to 'user.skill-users' model 1 class="show_searched_skills"}}
+    Show searched skills
+  {{/link-to}}
+  {{outlet}}
+</div>

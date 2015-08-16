@@ -14,7 +14,9 @@ Router.map ->
     @route 'matches'
     @route 'skill-users', path: '/skill-users/:kind'
 
-  @route 'users', path: '/users/:id', ->
+  @resource 'users'
+
+  @route 'user', path: '/users/:id', ->
     @route 'skill-users', path: '/skill-users/:kind'
 
   @resource 'skills', ->
@@ -22,5 +24,9 @@ Router.map ->
 
   @resource 'skill', path: '/skills/:id', ->
     @route 'skill-users', path: '/skill-users/:kind'
+
+  @resource 'trails', ->
+    @route 'new', path: 'new/:user_id'
+    @route 'trail', path: '/:id'
 
 export default Router

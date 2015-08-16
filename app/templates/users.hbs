@@ -1,10 +1,18 @@
-<div id="user">
-  <div id="nickname">{{model.nickname}}</div>
-  {{#link-to 'users.skill-users' model 0 class="show_acquired_skills"}}
-    Show acquired skills
-  {{/link-to}}
-  {{#link-to 'users.skill-users' model 1 class="show_searched_skills"}}
-    Show searched skills
-  {{/link-to}}
-  {{outlet}}
+<div class="row">
+  {{#each model as |user|}}
+  <div class="col-md-4 col-sm-4 col-xs-6 user">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="nickname">{{#link-to 'user' user}}{{user.nickname}}{{/link-to}}</h4>
+      </div>
+      <div class="panel-body">
+        {{#if session.isAuthenticated}}
+          <button class="start_new_trail" {{action 'createNewTrail' user}}>
+            Start a new trail
+          </button>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  {{/each}}
 </div>

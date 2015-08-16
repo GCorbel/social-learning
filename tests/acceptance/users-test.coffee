@@ -50,6 +50,15 @@ test 'Show the list skills searched', (assert) ->
     assert.equal find('.skill').length, 1
     assert.equal currentURL(), '/users/1/skill-users/1'
 
+test 'Show the list of users', (assert) ->
+  TestHelper.handleFindAll 'user', 1
+
+  visit '/users/'
+
+  andThen ->
+    assert.equal find('.user').length, 1
+    assert.equal currentURL(), '/users/'
+
 test 'Allow the user to subscribe', (assert) ->
   TestHelper.handleCreate('user')
 

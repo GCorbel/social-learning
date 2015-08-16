@@ -1,0 +1,23 @@
+<section id="cd-timeline">
+	<div class="cd-timeline-block">
+		<div class="cd-timeline-content">
+      {{#em-form model=new_message}}
+        {{em-text canShowErrors=true property="body"
+          label="Body" placeholder="Type a message"
+          class="body"}}
+      {{/em-form}}
+		</div>
+	</div>
+  {{#each model.messages as |message|}}
+    <div id="message-{{message.id}}" class="cd-timeline-block">
+      <div class="cd-timeline-img cd-picture">
+        <img src="assets/images/cd-icon-picture.svg" alt="Picture">
+      </div>
+
+      <div class="cd-timeline-content">
+        <div class="body">{{message.body}}</div>
+        <span class="cd-date">{{moment-format message.created_at}}</span>
+      </div>
+    </div>
+  {{/each}}
+</section>

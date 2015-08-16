@@ -1,3 +1,3 @@
 export default Ember.Route.extend
   model: (params) ->
-    @store.findAll('user')
+    @store.find('trail', params.id)
